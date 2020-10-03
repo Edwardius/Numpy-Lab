@@ -30,3 +30,18 @@ randomArray = np.random.random((5, 5)) # creates an array of random values from 
 print(randomArray)
 
 """ARRAY INDEXING"""
+wholeArray = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])    # creates an array
+sliceArray = wholeArray[1:3, 1:3]                                        # takes a slice of the array
+# the slice is defined by "starting index" : to "ending index (not including ending index value)", 0 = "empty space"
+print(wholeArray)
+print(sliceArray)
+
+row_1 = wholeArray[0, :]    # same as [1, :]  ':' represents all
+row_2 = wholeArray[1, :4]    # same as [1:2, :] but [1, 0:4] forms a different shape
+print(row_1, row_1.shape)
+print(row_2, row_2.shape)
+
+col_1 = wholeArray[:, 0]    # same as [0:4, 0:1] but forms a different shape
+col_2 = wholeArray[0:4, 1:2]    # same as [:, 1] but forms a different shape
+print(col_1, col_1.shape)
+print(col_2, col_2.shape)
