@@ -31,7 +31,7 @@ print(randomArray)
 
 """ARRAY INDEXING"""
 wholeArray = np.array([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]])    # creates an array
-sliceArray = wholeArray[1:3, 1:3]                                        # takes a slice of the array
+sliceArray = wholeArray[1:3, 1:3]                                        # takes a slice of the array, slices can influence the values of the whole
 # the slice is defined by "starting index" : to "ending index (not including ending index value)", 0 = "empty space"
 print(wholeArray)
 print(sliceArray)
@@ -45,3 +45,37 @@ col_1 = wholeArray[:, 0]    # same as [0:4, 0:1] but forms a different shape
 col_2 = wholeArray[0:4, 1:2]    # same as [:, 1] but forms a different shape
 print(col_1, col_1.shape)
 print(col_2, col_2.shape)
+
+"""INTEGER ARRAY INDEXING"""
+print(wholeArray[[0, 1, 0], [0, 1, 2]]) # prints the same thing as print(np.array([wholeArray[0, 0], wholeArray[1, 1], wholeArrray[2, 0]])
+# first group is the row index, second group is the column index
+print(wholeArray[[0, 1], [1, 0]]) # these will have a single row shape
+
+# this can be helpful when it comes to mutating a single element in the matrix
+print(wholeArray)
+mutate = np.array([0, 2, 3])
+wholeArray[np.arange(3), mutate] += 10 # arange just lets you make a range lmao
+print(wholeArray)
+
+"""BOOLEAN ARRAYS"""
+bool_idx = (wholeArray > 5)     # can be used to pick out the numbers that satisfy a condition
+
+print(wholeArray[bool_idx])
+print(wholeArray[wholeArray > 5])
+
+"""DATA TYPES"""
+# Every numpy array is of one datatype. It usually guesses the data type, but you can define the data type if you want
+intArray = np.array([3, 4], dtype=np.int64)
+print(intArray)
+print(intArray.dtype)
+
+"""ARRAY MATH"""
+x = np.array([[2, 23, 76, 19, 3, 5, 6], [43, 5, 6, 7, 2, 5, 56]], dtype=float)
+y = np.array([[14, 62, 23, 64, 63, 13, 1], [2, 54, 6, 324, 4, 6, 1]], dtype=float)
+
+print(x + y)    # print(np.add(x, y))
+print(x - y)    # print(np.subtract(x, y))
+print(x * y)    # print(np.multiply(x, y))
+print(x / y)    # print(np.divide(x, y))
+print(np.sqrt(x))
+
